@@ -1,0 +1,33 @@
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+public class FahrenheitToCelsius {
+    public static void main(String[] args) {
+        JFrame fr = new JFrame("Convert Fahrenheit To Celsius");
+        JTextField txt = new JTextField();
+        JLabel label1 = new JLabel("Celsius");
+        JButton bt1 = new JButton("CONVERT");
+        JLabel label2 = new JLabel("Fahrenheit");
+
+        fr.setLayout(new GridLayout(2,2));
+
+        fr.add(txt);
+        fr.add(label1);
+        fr.add(bt1);
+        fr.add(label2);
+        fr.setVisible(true);
+        fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        bt1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               // Object source = e.getSource();
+                String input = txt.getText();
+                double value  = Double.parseDouble(input);
+                double result  = ((value * 9) / 5) + 32;
+                JOptionPane.showMessageDialog (null, value + " degree celsius " +  " = "+ result + " Fahrenheit");
+            }
+
+        });
+    }
+}
